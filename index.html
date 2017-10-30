@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一键复制</title>
+	<script src="jquery.min.js"></script>
+	<script src="ZeroClipboard.min.js"></script>
+</head>
+<body>
+	<a id="link">http://niudota2.com/s?1vfl4s</a>
+	<button id="copy_button">一键复制</button>
+</body>
+<script>
+    $(function () {
+        var clip = new ZeroClipboard($('#copy_button'), {moviePath: '/ZeroClipboard.swf'});
+        clip.on("dataRequested", function (a, b) {
+            clip.setText($('#link').text());
+            alert("复制成功");
+        });
+    });
+</script>
+</html>
